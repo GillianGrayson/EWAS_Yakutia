@@ -20,7 +20,6 @@ library("DunedinPACE")
 # Directory must contain *.idat files and *.csv file with phenotype
 ###############################################
 path <- "path-to-directory-with-files"
-path <- "../../YandexDisk/Work/pydnameth/datasets/GPL21145/GSEUNN/special/026_data_for_GEO/idat"
 setwd(path)
 
 ###############################################

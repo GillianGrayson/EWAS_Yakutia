@@ -52,6 +52,25 @@ cpgs <- intersect(rownames(myLoad$beta), rownames(myNorm))
 myNorm <- myNorm[cpgs, ]
 rownames(myNorm) <- cpgs
 colnames(myNorm) <- colnames(myLoad$beta)
+
+###############################################
+# Harmonization
+###############################################
+pd <- myLoad$pd
+pd$Region <- as.factor(pd$Region)
+pd$Slide <- as.factor(pd$Slide)
+pd$Array <- as.factor(pd$Array)
+myNorm <- champ.runCombat(
+  beta = myNorm,
+  pd = pd,
+  variablename = "Region",
+  batchname = c("Slide", "Array"),
+  logitTrans = TRUE
+)
+
+###############################################
+# Save
+###############################################
 write.csv(myNorm, file = "betas.csv")
 
 ###############################################

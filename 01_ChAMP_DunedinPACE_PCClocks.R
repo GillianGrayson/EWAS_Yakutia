@@ -63,7 +63,7 @@ pd$Array <- as.factor(pd$Array)
 myNorm <- champ.runCombat(
   beta = myNorm,
   pd = pd,
-  variablename = "Region",
+  variablename = c("Age", "Sex", "Region"),
   batchname = c("Slide", "Array"),
   logitTrans = TRUE
 )
